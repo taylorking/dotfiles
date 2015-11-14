@@ -1,3 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =2
 let g:netrw_dirhist_1='/usr/local/apache2/htdocs/u/css/kingtb/phpma'
+let g:netrw_dirhist_2='/u/classes/3481/154/team21/lab8/Tests'

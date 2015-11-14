@@ -8,7 +8,9 @@ alias sudo='echo "null" >> /dev/null'
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
-
+export EDITOR=vim
+export XDG_CONFIG_HOME=$HOME/.config
+export VIMCLOJURE_SERVER_JAR=~/bin/server-2.3.6.jar
 export LD_LIBRARY_PATH=/u/css/kingtb/lib tmux mosh protobuf
 alias sl='ls --color=auto'
 alias l='ls --color=auto'
@@ -18,6 +20,8 @@ alias lal='ls -al --color=auto'
 alias dir='ls --color=auto'
 alias cls='clear'
 alias md='~/bin/Markdown.pl'
+alias gp='gprolog --consult-file'
+alias fs='fsharpi'
 PATH=/u/css/kingtb/bin:/u/css/kingtb/go-sys/bin/go/bin:$PATH
 echo "" > /dev/stdout
 fortune
@@ -46,7 +50,6 @@ then
 fi
 if [ "x$DISPLAY" != "x" ]
 then
-    alias vim="vim --servername VIM"
     if [ "$HAS_256_COLORS" = "yes" ]
     then
         function tvim(){ tmux new-session "TERM=screen-256color vim --servername VIM $@" ; }
@@ -64,3 +67,4 @@ fi
 unset SSH_ASKPASS
 export GOPATH=/u/css/kingtb/go
 export GOROOT=/u/css/kingtb/go-sys/bin/go
+export FBSDROP='ssh -i /u/css/kingtb/.ssh/google_rsa freebsd@104.236.113.153'

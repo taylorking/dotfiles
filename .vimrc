@@ -21,6 +21,11 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'whatyouhide/vim-gotham' 
 Plugin 'fatih/vim-go'
+Plugin 'node.js'
+Plugin 'adimit/prolog.vim'
+Plugin 'fsharp/vim-fsharp'
+Plugin 'Markdown'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -29,6 +34,8 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme='gotham256'
 let g:airline_powerline_fonts=1
+let vimclojure#WantNailgun = 1
+let vimclojure#NailgunClient = "~/bin/ng"
 
 syntax enable
 colorscheme gotham256
@@ -78,14 +85,14 @@ noremap j gj
 noremap k gk
 
 " moving around splits
-nmap gh <C-w>h
-nmap gj <C-w>j
-nmap gk <C-w>k
-nmap gl <C-w>l
+nmap gh <C-w>Left
+nmap gj <C-w>Up
+nmap gk <C-w>Down
+nmap gl <C-w>Right
 
 " moving between tabs
-nmap <C-l> gt
-nmap <C-h> gT
+" nmap <C-t>
+"" nmap <C-t>
 
 " :T <filename> opens file in new tab
 command! -complete=file -nargs=1 T tabedit <args>
@@ -102,6 +109,8 @@ function! StripWhitespace()
 endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
 
+autocmd BufNewFile,BufRead *.yo set ft=asm
+autocmd BufNewFile,BufRead *.yo set nosmartindent
 " Make vim turn *off* expandtab for files named Makefile or makefile
 " We need the tab literal
 autocmd BufNewFile,BufRead [Mm]akefile* set noexpandtab
